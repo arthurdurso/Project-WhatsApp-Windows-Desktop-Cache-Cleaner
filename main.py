@@ -22,5 +22,6 @@ def remove_all_files_in_directory(directory_path):
 
 
 # Usage
-directory_path = r'C:\Users\Durso\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\shared\transfers'
+user_profile = os.environ['USERPROFILE']
+directory_path = os.path.join(user_profile, r'AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\shared\transfers')
 remove_all_files_in_directory(directory_path)
