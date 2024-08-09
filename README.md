@@ -61,7 +61,7 @@ The best approach is to execute the script on startup, ensuring the cache is cle
 To ensure the executable runs automatically when the PC starts, follow these steps:
 
 1. **Open the Startup Folder**: Navigate to the Startup folder:
-C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
 
 2. Move the file 'cleaner_wppcache.exe' to the Startup folder.
 
