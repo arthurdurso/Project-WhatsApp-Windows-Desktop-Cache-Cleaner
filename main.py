@@ -1,5 +1,22 @@
-import os
-import shutil
+import os               # OS operations and file paths
+import shutil           # File and directory management
+
+
+def find_whatsapp_directory(base_path):
+    try:
+        # List all directories in the base path
+        directories = os.listdir(base_path)
+        
+        # Search for a directory containing "WhatsAppDesktop" in its name
+        for directory in directories:
+            if "WhatsAppDesktop" in directory:
+                full_path = os.path.join(base_path, directory)
+                return full_path
+            
+    except Exception as e:
+        # Handle exceptions silently
+        pass
+    return None
 
 
 def remove_all_files_in_directory(directory_path):
@@ -12,16 +29,25 @@ def remove_all_files_in_directory(directory_path):
             file_path = os.path.join(directory_path, file)
             if os.path.isfile(file_path):
                 os.remove(file_path)
-                print(f"Removed file: {file_path}")
             elif os.path.isdir(file_path):
                 shutil.rmtree(file_path)
-                print(f"Removed directory: {file_path}")
                 
     except Exception as e:
-        print(f"Error: {e}")
+        # Handle exceptions silently
+        pass
 
 
-# Usage
-user_profile = os.environ['USERPROFILE']
-directory_path = os.path.join(user_profile, r'AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\shared\transfers')
-remove_all_files_in_directory(directory_path)
+def main():
+
+    # Define the base path where WhatsApp packages are stored
+    user_profile = os.environ['USERPROFILE']
+    base_path = os.path.join(user_profile, r'AppData\Local\Packages')
+    whatsapp_directory = find_whatsapp_directory(base_path)
+    
+    # Remove all files and directories within the 'transfers' directory
+    directory_path = os.path.join(whatsapp_directory, r'LocalState\shared\transfers')
+    remove_all_files_in_directory(directory_path)
+
+
+if __name__ == "__main__":
+    main()
