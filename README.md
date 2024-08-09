@@ -1,4 +1,4 @@
-# Clean WhatsApp Cache
+# Clean WhatsApp Desktop Windows Cache
 
 ## Project Overview
 
@@ -8,7 +8,6 @@ This is my first solo project where I am developing a script to clean the WhatsA
 
 - **Cache Cleaning**: The script safely identifies and removes unnecessary cache data.
 - **Performance Improvement**: Clearing the cache will significantly enhance WhatsApp's performance.
-- **Cross-Platform**: Designed to work on various operating systems, with the best option being execution on startup for consistent performance.
 
 ## Implementation
 
@@ -26,7 +25,7 @@ The script is written in Python, utilizing the `os` and `shutil` libraries to ha
 
 ## Scheduling Options
 
-There are several ways to schedule the cache cleaning task:
+There are two ways that could be scheduled the cache cleaning task:
 
 ### Execute on Startup (Recommended)
 
@@ -37,19 +36,16 @@ There are several ways to schedule the cache cleaning task:
 
 - **Description**: A traditional method to schedule tasks on Windows.
 - **Advantages**: Simple and well-known method.
-- **Disadvantages**: Not suitable for Linux users; may not run if the PC is turned off at the scheduled time.
+- **Disadvantages**: May not run if the PC is turned off at the scheduled time.
 
-### Python Schedule Library
-
-- **Description**: Schedules the script to run every X hours.
-- **Advantages**: Flexible scheduling within the script.
-- **Disadvantages**: The script needs to be running continuously, which is not ideal.
 
 ## Conclusion
 
-The best approach is to execute the script on startup, ensuring the cache is cleared every time the PC logs in for the best performance. While Task Scheduler and Python's schedule library are valid options, they have limitations that make them less ideal for this project.
+The best approach is to execute the script on startup, ensuring the cache is cleared every time the PC logs in for the best performance. While Task Scheduler is a valid options, but it has limitations that make it less ideal for this project.
 
-## Future Work
 
-- **User Independence**: Modify the script to ensure it can be used by any user without configuration changes.
-- **Cross-Platform Enhancements**: Ensure compatibility with various operating systems.
+
+## To write:
+
+- user pyinstaller "pyinstaller --onefile main.py" to get just one file exe. get the file on the folder 'dist' and remove the 'build and 'dist' and 'main.spec'.
+- Need to do a step by step to put the exe file in the startup folder. the folder: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
