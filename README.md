@@ -63,6 +63,6 @@ To ensure the executable runs automatically when the PC starts, follow these ste
 1. **Open the Startup Folder**: Navigate to the Startup folder:
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
 
-2. Move the created shortcut to the Startup folder.
+2. Move the file 'cleaner_wppcache.exe' to the Startup folder.
 
 By doing this, the script will run each time the computer logs in, ensuring that the cache is regularly cleaned.
