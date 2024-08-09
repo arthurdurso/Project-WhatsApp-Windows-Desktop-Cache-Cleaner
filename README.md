@@ -1,4 +1,4 @@
-# Clean WhatsApp Desktop Windows Cache
+# Clean WhatsApp Desktop Cache for Windows
 
 ## Project Overview
 
@@ -23,6 +23,19 @@ The script is written in Python, utilizing the `os` and `shutil` libraries to ha
   - Verifies every file and subdirectory in the specified directory path.
   - Safely removes unnecessary cache files.
 
+## Creating an Executable
+
+An executable was created from the Python script using PyInstaller, to run on the startup folder. To recreate the executable, follow these steps: (Don't need to install pyinstaller, because it's already installed on the .venv)
+
+1. **Generate the Executable**: Run the following command in your terminal or Git Bash to create a single executable file:
+
+pyinstaller --onefile main.py
+
+Locate the Executable: After PyInstaller completes, find the executable in the dist folder within your project directory.
+
+Clean Up: Remove the build, dist, and main.spec files from your project directory, because you will only need the executable.
+
+
 ## Scheduling Options
 
 There are two ways that could be scheduled the cache cleaning task:
@@ -38,14 +51,18 @@ There are two ways that could be scheduled the cache cleaning task:
 - **Advantages**: Simple and well-known method.
 - **Disadvantages**: May not run if the PC is turned off at the scheduled time.
 
-
 ## Conclusion
 
 The best approach is to execute the script on startup, ensuring the cache is cleared every time the PC logs in for the best performance. While Task Scheduler is a valid options, but it has limitations that make it less ideal for this project.
 
 
+## Adding the Executable to Startup
 
-## To write:
+To ensure the executable runs automatically when the PC starts, follow these steps:
 
-- user pyinstaller "pyinstaller --onefile main.py" to get just one file exe. get the file on the folder 'dist' and remove the 'build and 'dist' and 'main.spec'.
-- Need to do a step by step to put the exe file in the startup folder. the folder: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+1. **Open the Startup Folder**: Navigate to the Startup folder:
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+
+2. Move the created shortcut to the Startup folder.
+
+By doing this, the script will run each time the computer logs in, ensuring that the cache is regularly cleaned.
