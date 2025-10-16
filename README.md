@@ -1,4 +1,4 @@
-# Clean WhatsApp Desktop Cache for Windows
+# WhatsApp Windows Desktop Cache Cleaner
 
 ## Project Overview
 
